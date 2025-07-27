@@ -8,13 +8,21 @@ class Counter extends Component {
         tags: ['tag1', 'tag2', 'tag3']
     };
 
+
+// handling events
+handleIncrement = () => {
+    this.setState({count: this.state.count +1})
+};
+
+
     render() { 
 
 
         return ( 
         <div>
             <span className={this.getBadgeClasses()} >{this.state.count}</span>
-        <button className='btn btn-secondary btn-sm'>Increment</button>
+        <button className='btn btn-secondary btn-sm' 
+        onClick={this.handleIncrement}>Increment</button>
         <ul> 
            {/* list items dynamically */}
            {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}

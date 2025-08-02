@@ -3,22 +3,14 @@ import React, { Component } from 'react';
 
 
 class Counter extends Component {
-    state = {
-        value: this.props.counter.value
-    };
-
-
-// handling events
-handleIncrement = () => {
-    this.setState({value: this.state.value + 1})
-};
+  
   render() { 
       return ( 
         <div>
              
-            <span className={this.getBadgeClasses()} >{this.state.value}</span>
+            <span className={this.getBadgeClasses()} >{this.formatCount()}</span>
         <button className='btn btn-secondary btn-sm' 
-      onClick={this.handleIncrement}>Increment</button>
+      onClick={() => this.props.onIncrement(this.props.counter)}>Increment</button>
      
       <button className='btn btn-danger btn-sm'
       onClick={() => this.props.onDelete(this.props.counter.id)}>Delete</button>
@@ -29,8 +21,14 @@ handleIncrement = () => {
     // applying classes dynamically
     getBadgeClasses() {
         let classes = "bg m-2 bg-";
-        classes += (this.state.value === 0) ? "warning" : "primary";
+        classes += (this.props.counter.value === 0) ? "warning" : "primary";
         return classes;
+    }
+
+    // this formats count to 'zero' instead of '0'
+    formatCount() {
+        const {value} = this.props.counter;
+        return value === 0 ? "zero" : value;
     }
 }
  

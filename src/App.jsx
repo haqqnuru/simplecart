@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import Counter from './components/counter';
+import Counters from './components/counters';
 
 function App() {
   
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <Counter/>
+        <Counters/>
       </div>
       
     </>

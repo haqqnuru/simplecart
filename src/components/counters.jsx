@@ -6,7 +6,7 @@ class Counters extends Component {
 
     render() { 
     
-        const {onReset, onIncrement, onDelete, counters} = this.props;
+        const {onReset, onIncrement, onDelete, counters, onDecrement} = this.props;
         return (
             <div>
                 <button 
@@ -16,6 +16,7 @@ class Counters extends Component {
 {counters.map(counter => <Counter 
 key={counter.id} 
 onIncrement = {onIncrement}
+onDecrement = {onDecrement}
 onDelete = {onDelete}
 // this carries all the data about counters 
 counter = {counter}/>)}

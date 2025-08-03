@@ -30,6 +30,18 @@ handleDelete = (counterId) => {
      this.setState({counters});
 }
 
+// handles decrement
+handleDecrement = (counter) => {
+        // ... clones all the properties of the counters State
+        const counters = [...this.state.counters];
+        const index = counters.indexOf(counter);
+        counters[index] = {...counter};
+        counters[index].value--;
+        this.setState({counters})
+
+};
+
+// hadles reset
 handleReset =() => {
     const counters = this.state.counters.map( c => {
         c.value = 0;
@@ -51,6 +63,7 @@ render() {
         counters = {this.state.counters}
         onReset ={this.handleReset}
         onIncrement ={this.handleIncrement}
+        onDecrement={this.handleDecrement}
         onDelete ={this.handleDelete}/>
       </div>
       
